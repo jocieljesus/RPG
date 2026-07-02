@@ -1,9 +1,12 @@
 package model;
 
+import java.util.Random;
+
 public abstract class Personagem {
 
     private String nome;
     private int vida;
+    public static Random d20 = new Random();
 
     public Personagem(String nome, int vidaMaxima){
         this.nome = nome;
@@ -16,6 +19,10 @@ public abstract class Personagem {
 
     public int getVida(){
         return  this.vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 
     public void receberDano(int dano){
