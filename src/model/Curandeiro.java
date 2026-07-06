@@ -3,6 +3,7 @@ package model;
 public class Curandeiro extends Personagem{
 
     public Curandeiro(String nome, int vidaMaxima) {
+
         super(nome, vidaMaxima);
     }
 

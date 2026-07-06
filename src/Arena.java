@@ -1,32 +1,39 @@
-import model.Curandeiro;
-import model.Guerreiro;
-import model.Mago;
 
-import java.util.Random;
+import javax.swing.*;
+import java.awt.*;
 
 public class Arena {
     public static void main(String[] args) {
 
-        System.out.println(" A Batalha  Vai Começar! ");
+//        UIManager.put("OptionPane.okButtonText", null);
+//
+//        JOptionPane.showMessageDialog(null, "Vamos começar a Batalha!");
+//
+//        String nomeGuerreiro = JOptionPane.showInputDialog("Qual o nome do guerreiro: ");
+//
+//        JOptionPane.showMessageDialog(null, nomeGuerreiro);
+//
+//
+//        Object[] opcoes = {"Salvar", "Descartar", "Cancelar"};
+//
+//        JOptionPane.showOptionDialog(null, "Você tem alteraçoes não salvas.", "Aviso de Fechamento", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcoes, opcoes[0]);
 
-        Guerreiro ryu = new Guerreiro("Ryu", 100, 35);
+        ImageIcon imagemOriginal = new ImageIcon("img/whiteboard.png");
 
-        Mago gendai = new Mago("Gendai", 75, 40);
+        Image imagemRedimensionada = imagemOriginal.getImage().getScaledInstance(48, 48, Image.SCALE_SMOOTH);
 
-        Curandeiro salazar = new Curandeiro("Salazar", 36);
+        ImageIcon iconePronto = new ImageIcon(imagemRedimensionada);
 
+        int num1 = Integer.parseInt(JOptionPane.showInputDialog("Digite o primeiro numero: "));
+        int num2 = Integer.parseInt(JOptionPane.showInputDialog("Digite o segundo numero: "));
+        int soma = num1 + num2;
 
-        int danoMago = gendai.atacar();
-        ryu.receberDano(danoMago);
-        System.out.println();
-        int danoGuerreiro =  ryu.atacar();
-        gendai.receberDano(danoGuerreiro);
-        System.out.println();
-        int danoCurandeiro = ryu.atacar();
-        salazar.receberDano(danoCurandeiro);
-        System.out.println();
-        salazar.curar();
-
+        JOptionPane.showMessageDialog(null,
+                String.format("A soma do numero %d e o numero %d é igual a %d", num1, num2, soma),
+               "Soma de dois numeros",
+                JOptionPane.INFORMATION_MESSAGE,
+                iconePronto
+        );
 
     }
 }
